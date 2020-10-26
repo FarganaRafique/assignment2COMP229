@@ -4,8 +4,8 @@ let mongoose = require('mongoose');
 let passport = require('passport');
 
 // enable jwt
-let jwt = require('jsonwebtoken');
-let DB = require('../config/db');
+//let jwt = require('jsonwebtoken');
+//let DB = require('../config/db');
 
 // create the User Model instance
 let userModel = require('../models/user');
@@ -16,19 +16,19 @@ module.exports.displayHomePage = (req, res, next) => {
 }
 
 module.exports.displayAboutPage = (req, res, next) => {
-    res.render('index', { title: 'About', displayName: req.user ? req.user.displayName : ''});
+    res.render('about', { title: 'About', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayProductsPage = (req, res, next) => {
-    res.render('index', { title: 'Products', displayName: req.user ? req.user.displayName : ''});
+    res.render('products', { title: 'Products', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayServicesPage = (req, res, next) => {
-    res.render('index', { title: 'Services', displayName: req.user ? req.user.displayName : ''});
+    res.render('services', { title: 'Services', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayContactPage = (req, res, next) => {
-    res.render('index', { title: 'Contact', displayName: req.user ? req.user.displayName : ''});
+    res.render('contact', { title: 'Contact', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayLoginPage = (req, res, next) => {
@@ -68,7 +68,7 @@ module.exports.processLoginPage = (req, res, next) => {
             {
                 return next(err);
             }
-
+/*
             const payload = 
             {
                 id: user._id,
@@ -79,7 +79,7 @@ module.exports.processLoginPage = (req, res, next) => {
 
             const authToken = jwt.sign(payload, DB.Secret, {
                 expiresIn: 604800 // 1 week
-            });
+            }); */
 
             /* TODO - Getting Ready to convert to API
             res.json({success: true, msg: 'User Logged in Successfully!', user: {

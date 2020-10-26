@@ -4,15 +4,15 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-let cors = require('cors');
+//let cors = require('cors');
 
 // modules for authentication
 let session = require('express-session');
 let passport = require('passport');
 
-let passportJWT = require('passport-jwt');
-let JWTStrategy = passportJWT.Strategy;
-let ExtractJWT = passportJWT.ExtractJwt;
+//let passportJWT = require('passport-jwt');
+//let JWTStrategy = passportJWT.Strategy;
+//let ExtractJWT = passportJWT.ExtractJwt;
 
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
@@ -75,6 +75,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+/*
 let jwtOptions = {};
 jwtOptions.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken();
 jwtOptions.secretOrKey = DB.Secret;
@@ -89,7 +90,7 @@ let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
     });
 });
 
-passport.use(strategy);
+passport.use(strategy); */
 
 // routing
 app.use('/', indexRouter);
